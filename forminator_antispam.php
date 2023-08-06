@@ -27,7 +27,7 @@ add_filter( 'forminator_custom_form_submit_errors', function( $submit_errors, $f
     //Block IP if try to make 3 submits from the same IP, only the first one will work, but if keep trying will be blocked if ON = true / OFF = false
     $defender_blacklist = false;
     //Valid email address to perform the email verification
-    $smtp_email_tester = 'alfredo.loyola@incsub.com';
+    $smtp_email_tester = 'somevalid@email.com';
     /*
     * Customize your error messages here.
     */
