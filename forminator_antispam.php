@@ -41,7 +41,7 @@ add_filter( 'forminator_custom_form_submit_errors', function( $submit_errors, $f
     //Error message when try to submit more than one submission in the las 24 hours from the same IP
     $ip_error_msg = 'You cannot submit more than 1 time within 24 hours.';
     //Error message when email is related to temp email, list is common providers in vendor/disposable_email_blocklist.conf
-    $disposable_error_msg = "Sorry, we don't accept Disposable Email Address!";
+    $error_msg_disposable = "Sorry, we don't accept Disposable Email Address!";
 
 	if( empty($submit_errors) && in_array( $form_id, $list_forms)){
 		foreach( $field_data_array as $field ){
