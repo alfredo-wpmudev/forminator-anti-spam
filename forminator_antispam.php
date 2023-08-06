@@ -26,6 +26,9 @@ add_filter( 'forminator_custom_form_submit_errors', function( $submit_errors, $f
     
     //Block IP if try to make 3 submits from the same IP, only the first one will work, but if keep trying will be blocked if ON = true / OFF = false
     $defender_blacklist = false;
+    //Limit one submit by IP in 24 hours
+    $limit_ip_submit_24hours = true;
+    
     //Valid email address to perform the email verification
     $smtp_email_tester = 'somevalid@email.com';
     /*
@@ -82,7 +85,7 @@ add_filter( 'forminator_custom_form_submit_errors', function( $submit_errors, $f
 			}
 		}
 
-        if (empty($submit_errors)) {
+        if ($limit_ip_submit_24hours && empty($submit_errors)) {
             $user_ip = Forminator_Geo::get_user_ip();
             if(!empty( $user_ip)){
                 $last_entry = Forminator_Form_Entry_Model::get_last_entry_by_ip_and_form( $form_id, $user_ip );
