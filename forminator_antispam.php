@@ -56,7 +56,7 @@ add_filter( 'forminator_custom_form_submit_errors', function( $submit_errors, $f
                     $dispossable_domains = explode(PHP_EOL, $file);
                     $curent_email = $pieces = explode("@", $field['value']); 
                     if (in_array($curent_email[1], $dispossable_domains)) {
-                        $submit_errors[][$email_field] = $disposable_error_msg;
+                        $submit_errors[][$email_field] = $error_msg_disposable;
                     }else{
                         // Initialize library class
                         $mail = new VerifyEmail();
